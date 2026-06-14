@@ -8,13 +8,7 @@ from datetime import datetime
 from bot_brain import RuleBot
 
 
-class ChatUI:
-    """""
-         Render the chat window and all widgets
-        Send user messages to RuleBot and display replies
-        Show timestamps on each message bubble
-    """
-
+class ChatUI
     #  Theme
     BG_WINDOW   = "#f5f4f0"
     BG_HEADER   = "#faf9f6"
@@ -76,12 +70,14 @@ class ChatUI:
         frame.pack(fill="x", side="top")
 
         # Separator line at bottom of header
+        
         tk.Frame(frame, bg=self.BORDER, height=1).pack(fill="x", side="bottom")
 
         inner = tk.Frame(frame, bg=self.BG_HEADER)
         inner.pack(padx=16, fill="x")
 
         # Avatar circle
+        
         avatar = tk.Canvas(inner, width=36, height=36, bg=self.BG_HEADER,
                            highlightthickness=0)
         avatar.pack(side="left", padx=(0, 10))
@@ -121,7 +117,7 @@ class ChatUI:
         self._msg_frame.bind("<Configure>", self._on_frame_configure)
         self._canvas.bind("<Configure>", self._on_canvas_configure)
 
-        # Mouse-wheel scrolling
+        # scrolling
         self._canvas.bind_all("<MouseWheel>", self._on_mousewheel)
 
     def _build_chips(self):
@@ -147,6 +143,7 @@ class ChatUI:
             )
             btn.pack(side="left", padx=3)
             # Hover effects
+            
             btn.bind("<Enter>", lambda e, b=btn: b.configure(bg="#EEEDFE", fg=self.ACCENT))
             btn.bind("<Leave>", lambda e, b=btn: b.configure(bg="#ffffff", fg="#555555"))
 
@@ -215,6 +212,7 @@ class ChatUI:
         wrapper.pack(side="right" if is_user else "left")
 
         # Timestamp
+        
         tk.Label(
             wrapper,
             text=timestamp,
